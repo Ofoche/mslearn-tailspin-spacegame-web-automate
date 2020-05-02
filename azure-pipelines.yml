@@ -84,6 +84,7 @@ stages:
         echo 'provider "azurerm" {' | tee main.tf
         echo '  features {}' | tee main.tf
         echo '}' | tee main.tf
+        cat main.tf
         # Write terraform.tfvars.
         echo 'resource_group_location = "'$(ResourceGroupLocation)'"' | tee terraform.tfvars
         # Write backend.tfvars.
