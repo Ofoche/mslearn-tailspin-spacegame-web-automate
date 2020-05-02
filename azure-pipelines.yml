@@ -79,8 +79,11 @@ stages:
     - script: |
         # Exit when any command returns a failure status.
         set -e
+
         # Write to main.tf
-        echo 'provider "azurerm" { features {} }' | tee main.tf
+        echo 'provider "azurerm" {' | tee main.tf
+        echo '  features {}' | tee main.tf
+        echo '}' | tee main.tf
         # Write terraform.tfvars.
         echo 'resource_group_location = "'$(ResourceGroupLocation)'"' | tee terraform.tfvars
         # Write backend.tfvars.
